@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 const Nav = () => {
   return (
     <div className='navbar bg-base-100 container mx-auto mt-6'>
@@ -34,19 +36,44 @@ const Nav = () => {
             </li>
           </ul>
         </div>
-        <a className='btn btn-ghost text-2xl font-bold'>Book Vibe</a>
+        <NavLink to='/'>
+          <a className='btn btn-ghost text-3xl font-bold text-green-500 '>
+            Book Vibe
+          </a>
+        </NavLink>
       </div>
       <div className='navbar-center hidden lg:flex'>
-        <ul className='menu menu-horizontal px-1'>
-          <li>
+        <ul className='menu menu-horizontal px-1 flex gap-8 items-center justify-center'>
+          <NavLink
+            to='/'
+            className={({ isActive }) =>
+              isActive
+                ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
+                : 'font-bold'
+            }
+          >
             <a>Home</a>
-          </li>
-          <li>
+          </NavLink>
+          <NavLink
+            to='/listedBooks'
+            className={({ isActive }) =>
+              isActive
+                ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
+                : 'font-bold'
+            }
+          >
             <a>Listed Books</a>
-          </li>
-          <li>
+          </NavLink>
+          <NavLink
+            to='/pagesToRead'
+            className={({ isActive }) =>
+              isActive
+                ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
+                : 'font-bold'
+            }
+          >
             <a>Pages to Read</a>
-          </li>
+          </NavLink>
         </ul>
       </div>
       <div className='navbar-end space-x-3'>

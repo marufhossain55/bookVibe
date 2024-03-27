@@ -1,9 +1,14 @@
 import { FaRegStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const BookCard = ({ books }) => {
-  const { bookName, category, rating, author, tags, image } = books;
-  console.log(books);
+  const { bookId, bookName, category, rating, author, tags, image } = books;
+
   return (
-    <div className='w-[400px] h-[520px]  shadow-md dark:bg-gray-50 dark:text-gray-900 border rounded-lg '>
+    <Link
+      to={`/book/${bookId}`}
+      onClick={() => console.log('hu')}
+      className='w-[400px] h-[520px]  shadow-md dark:bg-gray-50 dark:text-gray-900 border rounded-lg cursor-pointer '
+    >
       <div className='flex  justify-center'>
         {' '}
         <img
@@ -28,7 +33,7 @@ const BookCard = ({ books }) => {
           <FaRegStar />
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 export default BookCard;

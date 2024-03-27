@@ -4,7 +4,6 @@ import BookCard from '../components/BookCard';
 
 const Home = () => {
   const books = useLoaderData();
-
   return (
     <div>
       <Hero />

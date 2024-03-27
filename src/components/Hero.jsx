@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import img1 from '../assets/pngwing.png';
 const Hero = () => {
   return (
@@ -9,9 +10,12 @@ const Hero = () => {
           </h1>
 
           <div className='flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start mt-8'>
-            <button className='btn bg-[#23BE0A] text-white'>
-              View The List
-            </button>
+            <NavLink to='/listedBooks'>
+              {' '}
+              <button className='btn bg-[#23BE0A] text-white'>
+                View The List
+              </button>
+            </NavLink>
           </div>
         </div>
         <div className='flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128'>
