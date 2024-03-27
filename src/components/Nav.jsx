@@ -49,7 +49,7 @@ const Nav = () => {
             className={({ isActive }) =>
               isActive
                 ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
-                : 'font-bold'
+                : 'font-bold  hover:text-green-500 hover:border-black'
             }
           >
             <a>Home</a>
@@ -59,7 +59,7 @@ const Nav = () => {
             className={({ isActive }) =>
               isActive
                 ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
-                : 'font-bold'
+                : 'font-bold  hover:text-green-500 hover:border-black'
             }
           >
             <a>Listed Books</a>
@@ -69,10 +69,30 @@ const Nav = () => {
             className={({ isActive }) =>
               isActive
                 ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
-                : 'font-bold'
+                : 'font-bold  hover:text-green-500 hover:border-black'
             }
           >
             <a>Pages to Read</a>
+          </NavLink>
+          <NavLink
+            to='/pagesToRead'
+            className={({ isActive }) =>
+              isActive
+                ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
+                : 'font-bold hover:text-green-500 hover:border-black'
+            }
+          >
+            <a>Newly Arived</a>
+          </NavLink>
+          <NavLink
+            to='/pagesToRead'
+            className={({ isActive }) =>
+              isActive
+                ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
+                : 'font-bold  hover:text-green-500 hover:border-black'
+            }
+          >
+            <a>Tranding books</a>
           </NavLink>
         </ul>
       </div>

@@ -44,12 +44,12 @@ const Book = () => {
             {review}
           </p>
           <div className='flex gap-5'>
-            <span className='text-black font-semibold'>tag</span>
-            {/* {tags.map((tag) => (
-              <p className='text-green-500 font-semibold' key={tag}>
+            <span className='text-black font-semibold '>tag</span>
+            {tags?.map((tag) => (
+              <p className='text-green-500' key={tag}>
                 #{tag}
               </p>
-            ))} */}
+            ))}
           </div>
         </div>
         <div className='flex gap-10 mt-4 mb-6'>

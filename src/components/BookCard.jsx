@@ -6,7 +6,6 @@ const BookCard = ({ books }) => {
   return (
     <Link
       to={`/book/${bookId}`}
-      onClick={() => console.log('hu')}
       className='w-[400px] h-[520px]  shadow-md dark:bg-gray-50 dark:text-gray-900 border rounded-lg cursor-pointer '
     >
       <div className='flex  justify-center'>
