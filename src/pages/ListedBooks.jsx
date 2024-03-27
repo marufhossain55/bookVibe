@@ -6,7 +6,7 @@ const ListedBooks = () => {
   return (
     <div className='container mx-auto mt-10'>
       <h1 className='text-center text-4xl font-bold'>Books</h1>
-      <div className='text-center mt-6 p-4'>
+      {/* <div className='text-center mt-6 p-4'>
         <select
           name='books'
           id='books'
@@ -17,6 +17,22 @@ const ListedBooks = () => {
           <option value='numberOfPages'>Number of pages</option>
           <option value='publishYear'>Publish Year</option>
         </select>
+      </div> */}
+      <div className='dropdown'>
+        <div tabIndex={0} role='button' className='btn m-1'>
+          Click
+        </div>
+        <ul
+          tabIndex={0}
+          className='dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52'
+        >
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li>
+            <a>Item 2</a>
+          </li>
+        </ul>
       </div>
       <div>
         <div className='flex items-center -mx-4 overflow-x-auto overflow-y-hidden  flex-nowrap dark:bg-gray-100 dark:text-gray-800'>
