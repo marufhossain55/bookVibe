@@ -37,7 +37,7 @@ const Nav = () => {
           </ul>
         </div>
         <NavLink to='/'>
-          <a className='btn btn-ghost text-3xl font-bold text-green-500 '>
+          <a className='btn btn-ghost text-3xl font-bold text-green-500 border-green-500 bg-[#E6F7FF]'>
             Book Vibe
           </a>
         </NavLink>
@@ -49,47 +49,47 @@ const Nav = () => {
             className={({ isActive }) =>
               isActive
                 ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
-                : 'font-bold  hover:text-green-500 hover:border-black'
+                : 'font-bold  hover:border border-black p-3 rounded-lg'
             }
           >
-            <a>Home</a>
+            <a className=' hover:border-black'>Home</a>
           </NavLink>
           <NavLink
             to='/listedBooks'
             className={({ isActive }) =>
               isActive
                 ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
-                : 'font-bold  hover:text-green-500 hover:border-black'
+                : 'font-bold  hover:border border-black p-3 rounded-lg '
             }
           >
-            <a>Listed Books</a>
+            <a className=' hover:border-black'>Listed Books</a>
           </NavLink>
           <NavLink
             to='/pagesToRead'
             className={({ isActive }) =>
               isActive
                 ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
-                : 'font-bold  hover:text-green-500 hover:border-black'
+                : 'font-bold  hover:text-green-500 hover:border border-black p-3 rounded-lg'
             }
           >
             <a>Pages to Read</a>
           </NavLink>
           <NavLink
-            to='/pagesToRead'
+            to='/newlyArived'
             className={({ isActive }) =>
               isActive
                 ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
-                : 'font-bold hover:text-green-500 hover:border-black'
+                : 'font-bold hover:text-green-500 hover:border border-black p-3 rounded-lg'
             }
           >
             <a>Newly Arived</a>
           </NavLink>
           <NavLink
-            to='/pagesToRead'
+            to='/trandingBook'
             className={({ isActive }) =>
               isActive
                 ? 'font-bold border hover:bg-green-500 hover:text-white p-3 rounded-lg text-green-500 border-green-500'
-                : 'font-bold  hover:text-green-500 hover:border-black'
+                : 'font-bold  hover:text-green-500 hover:border border-black p-3 rounded-lg'
             }
           >
             <a>Tranding books</a>

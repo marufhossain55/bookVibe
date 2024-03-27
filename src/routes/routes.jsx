@@ -6,6 +6,8 @@ import Home from '../pages/Home';
 import Book from '../pages/Book';
 import ReadBooks from '../components/ReadBooks';
 import WishList from '../components/WishList';
+import NewlyArived from '../pages/NewlyArived';
+import TrandingBooks from '../pages/TrandingBooks';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ export const router = createBrowserRouter([
       {
         path: '/book/:bookId',
         element: <Book />,
+      },
+      {
+        path: '/newlyArived',
+        element: <NewlyArived />,
+      },
+      {
+        path: '/trandingBook',
+        element: <TrandingBooks />,
       },
       {
         path: '/listedBooks',
