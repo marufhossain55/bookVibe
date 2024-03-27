@@ -1,16 +1,21 @@
 import { useParams } from 'react-router-dom';
 import useBookData from '../Hooks/useBookData';
 import { useEffect, useState } from 'react';
+import { saveToLocalStorage } from '../utils/localStorage';
+import useLocalStorage from '../Hooks/useLocalStorage';
 
 const Book = () => {
   const [singleData, setSingleData] = useState({});
   const { bookId } = useParams();
   const { data, loading } = useBookData();
-
-  console.log(typeof bookId, singleData);
+  // const { localData } = useLocalStorage();
+  const handleReadBook = () => {
+    saveToLocalStorage(singleData);
+  };
+  // console.log(typeof bookId, singleData);
   useEffect(() => {
     const singleBook = data.find((book) => book.bookId === +bookId);
-    console.log(singleBook);
+    // console.log(singleBook);
     setSingleData(singleBook);
   }, [data, bookId]);
 
@@ -67,7 +72,12 @@ const Book = () => {
           </div>
         </div>
         <div className='flex gap-2'>
-          <button className='btn border border-gray-400'>Read</button>
+          <button
+            onClick={handleReadBook}
+            className='btn border border-gray-400'
+          >
+            Read
+          </button>
           <button className='btn bg-[#50B1C9] text-white'>Wishlist</button>
         </div>
       </div>
