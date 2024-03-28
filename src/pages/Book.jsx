@@ -10,44 +10,44 @@ import {
 import toast from 'react-hot-toast';
 
 const Book = () => {
-  const [singleReadData, setSingleReadData] = useContext(SaveDataContextRead);
-  const [singleWishData, setSingleWishData] = useContext(SaveDataContextWish);
-  console.log(singleReadData);
-  console.log(singleWishData);
-  const { bookId } = useParams();
-  const { data } = useBookData();
-  // console.log(data);
-  // const { localData } = useLocalStorage();
+  // const [singleReadData, setSingleReadData] = useContext(SaveDataContextRead);
+  // const [singleWishData, setSingleWishData] = useContext(SaveDataContextWish);
+  // console.log(singleReadData);
+  // console.log(singleWishData);
+  // const { bookId } = useParams();
+  // const { data } = useBookData();
+  // // console.log(data);
+  // // const { localData } = useLocalStorage();
 
-  const handleWishList = (datas) => {
-    const readBook = singleWishData.find((book) => book.bookId == datas.bookId);
-    saveToLocalWishStorage(singleWishData);
-    console.log(readBook);
-    if (readBook) {
-      toast.success('already added');
-    } else {
-      const selectedBook = [...singleWishData, data];
-      setSingleWishData(selectedBook);
-    }
-  };
+  // const handleWishList = (datas) => {
+  //   const readBook = singleWishData.find((book) => book.bookId == datas.bookId);
+  //   saveToLocalWishStorage(singleWishData);
+  //   console.log(readBook);
+  //   if (readBook) {
+  //     toast.success('already added');
+  //   } else {
+  //     const selectedBook = [...singleWishData, data];
+  //     setSingleWishData(selectedBook);
+  //   }
+  // };
 
-  const handleReadBook = (datas) => {
-    saveToLocalStorage(singleReadData);
-    const readBook = singleReadData.find((book) => book.bookId == datas.bookId);
-    console.log(readBook);
-    if (readBook) {
-      toast.success('already added');
-    } else {
-      const selectedBook = [...singleReadData, data];
-      setSingleReadData(selectedBook);
-    }
-  };
+  // const handleReadBook = (datas) => {
+  //   saveToLocalStorage(singleReadData);
+  //   const readBook = singleReadData.find((book) => book.bookId == datas.bookId);
+  //   console.log(readBook);
+  //   if (readBook) {
+  //     toast.success('already added');
+  //   } else {
+  //     const selectedBook = [...singleReadData, data];
+  //     setSingleReadData(selectedBook);
+  //   }
+  // };
 
-  useEffect(() => {
-    const singleBook = data.find((book) => book.bookId === +bookId);
+  // useEffect(() => {
+  //   const singleBook = data.find((book) => book.bookId === +bookId);
 
-    setSingleReadData(singleBook);
-  }, [data, bookId]);
+  //   setSingleReadData(singleBook);
+  // }, [data, bookId]);
 
   const {
     bookName,
