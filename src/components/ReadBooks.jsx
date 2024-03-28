@@ -35,7 +35,7 @@ const ReadBooks = () => {
                   <FaLocationDot /> Year of Publishing : {item.yearOfPublishing}
                 </div>
               </div>
-              <div className='flex gap-4'>
+              <div className='flex gap-4 pb-4 border-b-2'>
                 <div className='flex items-center gap-2'>
                   <MdOutlinePeopleAlt /> publisher : {item.publisher}
                 </div>
@@ -43,7 +43,7 @@ const ReadBooks = () => {
                   <RiFilePaper2Line /> Pages : {item.totalPages}
                 </div>
               </div>
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-2 pt-2'>
                 <div className='bg-[#328eff8c] rounded-3xl p-2 px-2 text-[#328EFF] text-sm'>
                   Category : {item.category}
                 </div>

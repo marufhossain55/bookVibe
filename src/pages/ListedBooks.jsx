@@ -18,19 +18,26 @@ const ListedBooks = () => {
           <option value='publishYear'>Publish Year</option>
         </select>
       </div> */}
-      <div className='dropdown'>
-        <div tabIndex={0} role='button' className='btn m-1'>
-          Click
+      <div className='dropdown flex justify-center items-center mt-10 mb-8'>
+        <div
+          tabIndex={0}
+          role='button'
+          className='btn m-1 bg-green-600 text-white'
+        >
+          Sort by
         </div>
         <ul
           tabIndex={0}
           className='dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52'
         >
           <li>
-            <a>Item 1</a>
+            <a>Rating</a>
           </li>
           <li>
-            <a>Item 2</a>
+            <a>Number of pages</a>
+          </li>
+          <li>
+            <a>Publish Year</a>
           </li>
         </ul>
       </div>

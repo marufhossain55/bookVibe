@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import useBookData from '../Hooks/useBookData';
 import { useEffect, useState } from 'react';
 import { saveToLocalStorage } from '../utils/localStorage';
-import useLocalStorage from '../Hooks/useLocalStorage';
+import { saveToLocalWishStorage } from '../utils/localWishListStorage';
 
 const Book = () => {
   const [singleData, setSingleData] = useState({});
@@ -12,6 +12,11 @@ const Book = () => {
   const handleReadBook = () => {
     saveToLocalStorage(singleData);
   };
+
+  const handleWishList = () => {
+    saveToLocalWishStorage(singleData);
+  };
+
   // console.log(typeof bookId, singleData);
   useEffect(() => {
     const singleBook = data.find((book) => book.bookId === +bookId);
@@ -78,7 +83,12 @@ const Book = () => {
           >
             Read
           </button>
-          <button className='btn bg-[#50B1C9] text-white'>Wishlist</button>
+          <button
+            onClick={handleWishList}
+            className='btn bg-[#50B1C9] text-white'
+          >
+            Wishlist
+          </button>
         </div>
       </div>
     </div>
