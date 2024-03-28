@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 // import { Link, Outlet } from 'react-router-dom';
 
+import { useState } from 'react';
 import ListBookCard from '../components/ListBookCard';
 import { getStoredBooks } from '../utils/localStorage';
 import { getStoredBook } from '../utils/localWishListStorage';
@@ -88,43 +89,102 @@ import { getStoredBook } from '../utils/localWishListStorage';
 const ListedBooks = () => {
   const readBookData = getStoredBooks();
   const AllBookData = getStoredBook();
+
+  const [value, setValue] = useState(true);
+  const [furyBook, setFuryBook] = useState(AllBookData);
+  const [intelBook, setIntelBook] = useState(readBookData);
+
+  const sortByRating = () => {
+    const sortWish = [].concat(furyBook).sort((a, b) => b.rating - a.rating);
+    const sortBook = [].concat(intelBook).sort((a, b) => b.rating - a.rating);
+    setIntelBook(sortBook);
+    setFuryBook(sortWish);
+  };
+
+  const sortPublishedYear = () => {
+    const sortPublishedr = []
+      .concat(intelBook)
+      .sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+    const sortWishPublishedr = []
+      .concat(furyBook)
+      .sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+    setIntelBook(sortPublishedr);
+    setFuryBook(sortWishPublishedr);
+  };
+
+  const sortByNumberofPages = () => {
+    const sortPage = []
+      .concat(intelBook)
+      .sort((a, b) => b.totalPages - a.totalPages);
+    const sortWishPage = []
+      .concat(furyBook)
+      .sort((a, b) => b.totalPages - a.totalPages);
+    setIntelBook(sortPage);
+    setFuryBook(sortWishPage);
+  };
+
   return (
-    <div className='mt-8'>
-      <div role='tablist' className='tabs tabs-lifted'>
-        <input
-          type='radio'
-          name='my_tabs_2'
-          role='tab'
-          className='tab'
-          aria-label='Read Book'
-          checked
-        />
-        <div
-          role='tabpanel'
-          className='tab-content bg-base-100 border-base-300 rounded-box p-6'
-        >
-          <div className='space-y-4 mt-4'>
-            {readBookData.map((item) => (
-              <ListBookCard key={item.id} item={item}></ListBookCard>
-            ))}
-          </div>
+    <div className='mt-18'>
+      <h1 className='font-bold text-center text-3xl '>Books</h1>
+      <div className='mt-8'>
+        <div className=' text-center'>
+          <details className='dropdown'>
+            <summary className='m-1 btn bg-[#23BE0A] hover:bg-[#23BE0A] text-white'>
+              Sort By
+            </summary>
+            <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52'>
+              <li onClick={sortByRating}>
+                <a>Rating</a>
+              </li>
+              <li onClick={sortByNumberofPages}>
+                <a>Number of pages</a>
+              </li>
+              <li onClick={sortPublishedYear}>
+                <a>Publisher year</a>
+              </li>
+            </ul>
+          </details>
         </div>
 
-        <input
-          type='radio'
-          name='my_tabs_2'
-          role='tab'
-          className='tab'
-          aria-label='WishList Books'
-        />
-        <div
-          role='tabpanel'
-          className='tab-content bg-base-100 border-base-300 rounded-box p-6'
-        >
-          <div className='space-y-4 mt-4'>
-            {AllBookData.map((item) => (
-              <ListBookCard key={item.id} item={item}></ListBookCard>
-            ))}
+        <div role='tablist' className='tabs tabs-lifted'>
+          <input
+            onClick={() => setValue(true)}
+            type='radio'
+            name='my_tabs_2'
+            role='tab'
+            className='tab'
+            aria-label='Read Book'
+            checked={value ? true : false}
+          />
+          <div
+            role='tabpanel'
+            className='tab-content bg-base-100 border-base-300 rounded-box p-6'
+          >
+            <div className='space-y-4 mt-4'>
+              {intelBook.map((item) => (
+                <ListBookCard key={item.id} item={item}></ListBookCard>
+              ))}
+            </div>
+          </div>
+
+          <input
+            onClick={() => setValue(false)}
+            type='radio'
+            name='my_tabs_2'
+            role='tab'
+            className='tab'
+            aria-label='WishList Book'
+            checked={!value ? true : false}
+          />
+          <div
+            role='tabpanel'
+            className='tab-content bg-base-100 border-base-300 rounded-box p-6'
+          >
+            <div className='space-y-4 mt-4'>
+              {furyBook.map((item) => (
+                <ListBookCard key={item.id} item={item}></ListBookCard>
+              ))}
+            </div>
           </div>
         </div>
       </div>

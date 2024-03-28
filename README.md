@@ -1,15 +1,23 @@
 # site name: Book Vibe
 
-# live link :
+# live link : book-vibe-react.surge.sh
 
-# features and characteristics
+# characteristics
 
-Personalized book tracking: Users can mark books to read or add them to a wishlist.
+- Personalized book tracking: Users can mark books to read or add them to a wishlist.
 
-Interactive reading progress: Users can track their reading progress with a pages-to-read characteristics
+- Interactive reading progress: Users can track their reading progress with a pages-to-read characteristics
 
-Book details: Each book is accompanied by essential information such as title, author name, genre tags, and user ratings.
+- Book details: Each book is accompanied by essential information such as title, author name, genre tags, and user ratings.
 
-Engagement: Users can see book reviews, and insights.
+- Engagement: Users can see book reviews, and insights.
 
-Easy navigation: The website features intuitive navigation with a navbar and filtering options
+- Easy navigation: The website features intuitive navigation with a navbar and filtering options
+
+# features
+
+- Home
+- listed books
+- pages to read
+- wishlist
+- read book list
