@@ -1,27 +1,27 @@
 import { useParams } from 'react-router-dom';
 import useBookData from '../Hooks/useBookData';
-import { useEffect, useState } from 'react';
-import { saveToLocalStorage } from '../utils/localStorage';
-import { saveToLocalWishStorage } from '../utils/localWishListStorage';
+import { useContext, useEffect } from 'react';
+// import { saveToLocalStorage } from '../utils/localStorage';
+// import { saveToLocalWishStorage } from '../utils/localWishListStorage';
+import { SaveDataContextRead } from '../layouts/MainLayout';
 
 const Book = () => {
-  const [singleData, setSingleData] = useState({});
+  const [singleReadData, setSingleReadData] = useContext(SaveDataContextRead);
   const { bookId } = useParams();
-  const { data, loading } = useBookData();
+  const { data } = useBookData();
   // const { localData } = useLocalStorage();
   const handleReadBook = () => {
-    saveToLocalStorage(singleData);
+    // saveToLocalStorage(singleReadData);
   };
 
   const handleWishList = () => {
-    saveToLocalWishStorage(singleData);
+    // saveToLocalWishStorage(singleReadData);
   };
 
-  // console.log(typeof bookId, singleData);
   useEffect(() => {
     const singleBook = data.find((book) => book.bookId === +bookId);
-    // console.log(singleBook);
-    setSingleData(singleBook);
+
+    setSingleReadData(singleBook);
   }, [data, bookId]);
 
   const {
@@ -35,7 +35,7 @@ const Book = () => {
     publisher,
     yearOfPublishing,
     rating,
-  } = singleData || {};
+  } = singleReadData || {};
   return (
     <div className='flex flex-col lg:flex-row container mx-auto justify-around mt-14 border'>
       <div className='flex  justify-center items-center '>
