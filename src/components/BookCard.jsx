@@ -2,11 +2,10 @@ import { FaRegStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const BookCard = ({ books }) => {
   const { bookId, bookName, category, rating, author, tags, image } = books;
-
   return (
     <Link
       to={`/book/${bookId}`}
-      className='w-[400px] h-[520px]  shadow-md dark:bg-gray-50 dark:text-gray-900 border rounded-lg cursor-pointer '
+      className='w-[400px] h-[520px] p-4 shadow-md dark:bg-gray-50 dark:text-gray-900 border rounded-lg cursor-pointer '
     >
       <div className='flex  justify-center'>
         {' '}

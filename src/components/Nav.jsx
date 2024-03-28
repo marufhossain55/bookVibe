@@ -25,9 +25,9 @@ const Nav = () => {
             tabIndex={0}
             className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
           >
-            <li>
+            <NavLink to='/'>
               <a>Home</a>
-            </li>
+            </NavLink>
             <li>
               <a>Listed Books</a>
             </li>
@@ -37,7 +37,7 @@ const Nav = () => {
           </ul>
         </div>
         <NavLink to='/'>
-          <a className='btn btn-ghost text-3xl font-bold text-green-500 border-green-500 bg-[#E6F7FF]'>
+          <a className='btn btn-ghost text-base lg:text-3xl font-bold text-green-500 border-green-500 bg-[#E6F7FF]'>
             Book Vibe
           </a>
         </NavLink>

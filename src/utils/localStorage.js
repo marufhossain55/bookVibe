@@ -15,21 +15,72 @@ import toast from 'react-hot-toast';
 //   const data = JSON.parse(localStorage.getItem('book')) || [];
 //   return data;
 // };
-const saveToReadBookStorage = () => {
-  const readBooks = localStorage.getItem('readBook');
-  if (readBooks) {
-    return JSON.parse(readBooks);
-  } else {
-    return [];
-  }
-};
-const saveReadData = (readData) => {
-  const saveIt = saveToReadBookStorage();
-  const isExist = saveIt.find((itemId) => itemId.bookId === +readData.bookId);
 
-  if (!isExist) {
-    saveIt.push(readData);
-    localStorage.setItem('readBook', JSON.stringify(saveIt));
+//////////////////////////////////////////////////////
+// export const getReadBooks = () => {
+//   let readBooks = [];
+//   const storedBooks = localStorage.getItem('book');
+//   if (storedBooks) {
+//     readBooks = JSON.parse(storedBooks);
+
+//     return readBooks;
+//   }
+// };
+
+// // save
+
+// export const saveReadBooks = (books) => {
+//   let readBooks = getReadBooks();
+//   console.log(readBooks);
+//   const isExist = readBooks.find((b) => b.bookId === readBooks.bookId);
+//   if (isExist) {
+//     return toast.error('Already added');
+//   }
+//   readBooks.push(books);
+//   localStorage.setItem('book', JSON.stringify(readBooks));
+//   toast.success('Added successfully');
+// };
+/////////////////////////////////////////////////////
+// const getDataBooks = () => {
+//   const shopBook = localStorage.getItem('Books');
+//   if (shopBook) {
+//     return JSON.parse(shopBook);
+//   }
+//   return [];
+// };
+
+// const saveBooks = (newBook) => {
+//   const storedBooks = getDataBooks();
+//   console.log(newBook);
+//   const exist = storedBooks.find((book) => book.bookId == newBook.bookId);
+//   console.log(exist);
+//   if (!exist) {
+//     const newStoreBooks = [...storedBooks, newBook];
+//     localStorage.setItem('Books', JSON.stringify(newStoreBooks));
+//   } else {
+//     toast.error('Already Data Added Read Book!');
+//   }
+// };
+
+// export { getDataBooks, saveBooks };
+
+/////////////////////////////
+
+const getStoredBooks = () => {
+  const storedBook = localStorage.getItem('Books');
+  if (storedBook) {
+    return JSON.parse(storedBook);
+  }
+  return [];
+};
+
+const saveBooks = (id) => {
+  const storedBooks = getStoredBooks();
+  const exist = storedBooks.find((bookId) => bookId.bookId == id.bookId);
+  if (!exist) {
+    storedBooks.push(id);
+    localStorage.setItem('Books', JSON.stringify(storedBooks));
   }
 };
-export { saveReadData, saveToReadBookStorage };
+
+export { getStoredBooks, saveBooks };

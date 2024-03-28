@@ -16,20 +16,22 @@
 //   return data;
 // };
 
-const getLD = () => {
-  const taken = localStorage.getItem('wishListbook');
-  if (taken) {
-    return JSON.parse(taken);
-  } else {
-    return [];
+///////////////////////////////////////
+const getStoredBook = () => {
+  const storedBooks = localStorage.getItem('WishBook');
+  if (storedBooks) {
+    return JSON.parse(storedBooks);
   }
+  return [];
 };
-const saveLData = (data) => {
-  const saveIt = getLD();
-  const isExist = saveIt.find((itemId) => itemId.bookId === +data.bookId);
 
-  if (!isExist) {
-    saveIt.push(data);
-    localStorage.setItem('listBook', JSON.stringify(saveIt));
+const saveBook = (id) => {
+  const storedBookss = getStoredBook();
+  const exist = storedBookss.find((bookId) => bookId.bookId == id.bookId);
+  if (!exist) {
+    storedBookss.push(id);
+    localStorage.setItem('WishBook', JSON.stringify(storedBookss));
   }
 };
+
+export { getStoredBook, saveBook };

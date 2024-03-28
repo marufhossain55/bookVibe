@@ -4,15 +4,18 @@ import ListedBooks from '../pages/ListedBooks';
 import PagesToRead from '../pages/PagesToRead';
 import Home from '../pages/Home';
 import Book from '../pages/Book';
-import ReadBooks from '../components/ReadBooks';
-import WishList from '../components/WishList';
+// import ReadBooks from '../components/ReadBooks';
+// import WishList from '../components/WishList';
 import NewlyArived from '../pages/NewlyArived';
 import TrandingBooks from '../pages/TrandingBooks';
+import Error from '../layouts/Error';
+import ListBookCard from '../components/ListBookCard';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <Error />,
     children: [
       {
         // index: true,
@@ -23,6 +26,7 @@ export const router = createBrowserRouter([
       {
         path: '/book/:bookId',
         element: <Book />,
+        loader: () => fetch('/allBooks.json'),
       },
       {
         path: '/newlyArived',
@@ -35,10 +39,10 @@ export const router = createBrowserRouter([
       {
         path: '/listedBooks',
         element: <ListedBooks />,
-        children: [
-          { index: true, element: <ReadBooks /> },
-          { path: 'wishlist', element: <WishList /> },
-        ],
+        // children: [
+        //   { index: true, element: <ListBookCard /> },
+        //   { path: 'wishlist', element: <ListBookCard /> },
+        // ],
       },
       { path: '/pagesToRead', element: <PagesToRead /> },
     ],
