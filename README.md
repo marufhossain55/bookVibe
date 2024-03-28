@@ -2,7 +2,7 @@
 
 # live link :
 
-#features and characteristics
+# features and characteristics
 
 Personalized book tracking: Users can mark books to read or add them to a wishlist.
 
