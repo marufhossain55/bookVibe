@@ -97,6 +97,7 @@ const ListedBooks = () => {
           role='tab'
           className='tab'
           aria-label='Read Book'
+          checked
         />
         <div
           role='tabpanel'
@@ -115,7 +116,6 @@ const ListedBooks = () => {
           role='tab'
           className='tab'
           aria-label='WishList Books'
-          checked
         />
         <div
           role='tabpanel'
