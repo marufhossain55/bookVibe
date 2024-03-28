@@ -1,21 +1,46 @@
 import { useParams } from 'react-router-dom';
 import useBookData from '../Hooks/useBookData';
 import { useContext, useEffect } from 'react';
-// import { saveToLocalStorage } from '../utils/localStorage';
-// import { saveToLocalWishStorage } from '../utils/localWishListStorage';
-import { SaveDataContextRead } from '../layouts/MainLayout';
+import { saveToLocalStorage } from '../utils/localStorage';
+import { saveToLocalWishStorage } from '../utils/localWishListStorage';
+import {
+  SaveDataContextRead,
+  SaveDataContextWish,
+} from '../layouts/MainLayout';
+import toast from 'react-hot-toast';
 
 const Book = () => {
   const [singleReadData, setSingleReadData] = useContext(SaveDataContextRead);
+  const [singleWishData, setSingleWishData] = useContext(SaveDataContextWish);
+  console.log(singleReadData);
+  console.log(singleWishData);
   const { bookId } = useParams();
   const { data } = useBookData();
+  // console.log(data);
   // const { localData } = useLocalStorage();
-  const handleReadBook = () => {
-    // saveToLocalStorage(singleReadData);
+
+  const handleWishList = (datas) => {
+    const readBook = singleWishData.find((book) => book.bookId == datas.bookId);
+    saveToLocalWishStorage(singleWishData);
+    console.log(readBook);
+    if (readBook) {
+      toast.success('already added');
+    } else {
+      const selectedBook = [...singleWishData, data];
+      setSingleWishData(selectedBook);
+    }
   };
 
-  const handleWishList = () => {
-    // saveToLocalWishStorage(singleReadData);
+  const handleReadBook = (datas) => {
+    saveToLocalStorage(singleReadData);
+    const readBook = singleReadData.find((book) => book.bookId == datas.bookId);
+    console.log(readBook);
+    if (readBook) {
+      toast.success('already added');
+    } else {
+      const selectedBook = [...singleReadData, data];
+      setSingleReadData(selectedBook);
+    }
   };
 
   useEffect(() => {
@@ -95,3 +120,21 @@ const Book = () => {
   );
 };
 export default Book;
+
+// const readBookUnic = singleReadData?.find(
+//   (book) => book.bookId == data.bookId
+// );
+// const readWishBook = singleWishData?.find(
+//   (book) => book.bookId == data.bookId
+// );
+// if (!readBookUnic) {
+//   if (!readWishBook) {
+//     const selectedBook = [...singleWishData, data];
+//     setSingleWishData(selectedBook);
+//     toast.success('added to wishlist');
+//   } else {
+//     toast.error('already exist');
+//   }
+// } else {
+//   toast.error('cant be added on wish');
+// }
